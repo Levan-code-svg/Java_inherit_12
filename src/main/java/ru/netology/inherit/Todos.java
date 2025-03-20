@@ -26,7 +26,7 @@ public class Todos {
      *
      * @param task Добавляемая задача
      */
-    public void add(Task task) { // <- вот здесь в параметре может лежать объект и вида SimpleTask, и вида Epic, и вида Meeting
+    public void add(Task task) {
         tasks = addToArray(tasks, task);
     }
 
@@ -41,10 +41,10 @@ public class Todos {
      * @return Массив из подошедших задач
      */
     public Task[] search(String query) {
-        Task[] result = new Task[0]; // массив для ответа
-        for (Task task : tasks) { // перебираем все задачи
-            if (task.matches(query)) { // если задача подходит под запрос
-                result = addToArray(result, task); // добавляем её в массив ответа
+        Task[] result = new Task[0];
+        for (Task task : tasks) {
+            if (task.matches(query)) {
+                result = addToArray(result, task);
             }
         }
         return result;
