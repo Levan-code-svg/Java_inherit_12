@@ -1,13 +1,17 @@
 package ru.netology.inherit;
 
+//Meeting — задача, описывающая назначенную встречу. Про неё известны id — число,
+// topic — тема обсуждения,
+// project — название проекта, который будут обсуждать,
+// start — дата и время старта текстом.
 public class Meeting extends Task {
-    private final String topic;
-    private final String project;
-    private final String start;
+    protected String topic;
+    protected String project;
+    protected String start;
 
     public Meeting(int id, String topic, String project, String start) {
-        super(id);
-        this.topic = topic;
+        super(id); // вызов родительского конструктора
+        this.topic = topic; // заполнение своих полей
         this.project = project;
         this.start = start;
     }
@@ -22,13 +26,18 @@ public class Meeting extends Task {
 
     public String getStart() {
         return start;
+
     }
 
     @Override
     public boolean matches(String query) {
         if (topic.contains(query)) {
             return true;
+        } else if (project.contains(query)) {
+            return true;
+        } else {
+
         }
-        return project.contains(query);
+        return false;
     }
 }

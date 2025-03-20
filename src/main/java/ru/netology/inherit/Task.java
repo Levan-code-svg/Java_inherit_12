@@ -13,6 +13,8 @@ public class Task {
         return id;
     }
 
+    // Ниже находятся вспомогательные методы для корректной работы equals
+    // Переопределять их в наследниках не нужно
 
     @Override
     public boolean equals(Object o) {
@@ -26,7 +28,6 @@ public class Task {
     public int hashCode() {
         return Objects.hash(id);
     }
-
 
     public boolean matches(String query) {
         return false;

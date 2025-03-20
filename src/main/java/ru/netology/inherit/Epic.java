@@ -1,11 +1,13 @@
 package ru.netology.inherit;
 
+//Epic — задача, состоящая из подзадач.
+//Про неё известны id (число) и subtasks — массив из подзадач, каждая из которых является простым текстом (String);
 public class Epic extends Task {
-    private final String[] subtasks;
+    protected String[] subtasks;
 
     public Epic(int id, String[] subtasks) {
-        super(id);
-        this.subtasks = subtasks;
+        super(id); // вызов родительского конструктора
+        this.subtasks = subtasks; // заполнение своих полей
     }
 
     public String[] getSubtasks() {
@@ -14,11 +16,14 @@ public class Epic extends Task {
 
     @Override
     public boolean matches(String query) {
-        for (String subtask : subtasks) {
-            if (subtask.contains(query)) {
+        for (String subtasks : subtasks) {
+            if (subtasks.contains(query)) {
                 return true;
             }
         }
         return false;
     }
 }
+
+
+
